@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Best School: $((88+10))"
+
+
