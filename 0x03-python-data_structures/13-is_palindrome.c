@@ -23,6 +23,7 @@ listint_t *reverse_listint(listint_t **head)
     *head = prev;
     return (*head);
 }
+#include "lists.h"
 
 /**
  * is_palindrome - checks if a singly linked list is a palindrome
@@ -31,67 +32,25 @@ listint_t *reverse_listint(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-    listint_t *ptr = *head;
-    listint_t *str = *head;
-    
-    if (*head == NULL || (*head)->next == NULL)
-        return (1);
-
-    while (ptr != NULL && str != NULL)
+    listint_t *slow = *head;
+    listint_t *fast = *head;
+    while (fast != NULL && fast->next != NULL)
     {
-        if (str->next != NULL)
-        {
-            ptr = ptr->next;
-            str = str->next->next;
-            if (ptr == str)
-            {
-                reverse_listint(&str);
-                break;
-            }
-        }
-        else
-        {
-            ptr = NULL;
-        }
+        slow = slow->next;
+        fast = fast->next->next;
     }
 
-    ptr = *head;
-    while (str != NULL)
+    reverse_listint(&slow);
+    while (slow != NULL)
     {
-        if (ptr->n != str->n)
-            return (0); 
-        ptr = ptr->next;
-        str = str->next;
-    }
-
-    return (1); // It is a palindrome
-}
-
-/**
- * comparelist - compares two linked lists for equality
- *
- * @head1: pointer to the head of the first list
- * @head2: pointer to the head of the second list
- * Return: 1 if the lists are equal, 0 otherwise
- */
-int comparelist(listint_t *head1, listint_t *head2)
-{
-    listint_t *temp1 = head1;
-    listint_t *temp2 = head2;
-
-    while (temp1 != NULL && temp2 != NULL)
-    {
-        if (temp1->n != temp2->n)
+        if ((*head)->n != slow->n)
         {
+           
             return 0;
         }
-        temp1 = temp1->next;
-        temp2 = temp2->next;
-    }
-    if (temp1 == NULL && temp2 == NULL)
-    {
-        return 1; 
+        *head = (*head)->next;
+        slow = slow->next;
     }
 
-    return 0;
+    return 1; 
 }
