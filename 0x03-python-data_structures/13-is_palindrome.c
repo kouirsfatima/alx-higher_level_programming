@@ -33,6 +33,10 @@ int is_palindrome(listint_t **head)
 {
     listint_t *ptr = *head;
     listint_t *str = *head;
+    
+    if (*head == NULL || (*head)->next == NULL)
+        return (1);
+
     while (ptr != NULL && str != NULL)
     {
         if (str->next != NULL)
@@ -42,7 +46,12 @@ int is_palindrome(listint_t **head)
             if (ptr == str)
             {
                 reverse_listint(&str);
+                break;
             }
+        }
+        else
+        {
+            ptr = NULL;
         }
     }
 
@@ -50,10 +59,39 @@ int is_palindrome(listint_t **head)
     while (str != NULL)
     {
         if (ptr->n != str->n)
-            return (0);
+            return (0); 
         ptr = ptr->next;
         str = str->next;
     }
 
-    return (1); 
+    return (1); // It is a palindrome
+}
+
+/**
+ * comparelist - compares two linked lists for equality
+ *
+ * @head1: pointer to the head of the first list
+ * @head2: pointer to the head of the second list
+ * Return: 1 if the lists are equal, 0 otherwise
+ */
+int comparelist(listint_t *head1, listint_t *head2)
+{
+    listint_t *temp1 = head1;
+    listint_t *temp2 = head2;
+
+    while (temp1 != NULL && temp2 != NULL)
+    {
+        if (temp1->n != temp2->n)
+        {
+            return 0;
+        }
+        temp1 = temp1->next;
+        temp2 = temp2->next;
+    }
+    if (temp1 == NULL && temp2 == NULL)
+    {
+        return 1; 
+    }
+
+    return 0;
 }
