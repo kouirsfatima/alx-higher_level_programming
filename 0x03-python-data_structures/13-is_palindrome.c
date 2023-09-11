@@ -41,14 +41,15 @@ int is_palindrome(listint_t **head)
 		str = str->next->next;
 	}
 	reverse_listint(&str);
-	ptr = *head;
-	while (str != NULL)
-	{
-		if (ptr->n != str->n)
-			return (0);
-		ptr = ptr->next;
-		str = str->next;
-	}
+    while (ptr != NULL)
+    {
+        if ((*head)->n != ptr->n)
+        {
+            return 0;
+        }
+        *head = (*head)->next;
+        ptr = ptr->next;
+    }
 
-	return (1);
+    return 1; 
 }
