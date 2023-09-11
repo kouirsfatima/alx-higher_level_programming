@@ -9,19 +9,19 @@
  */
 listint_t *reverse_listint(listint_t **head)
 {
-    listint_t *prev = NULL;
-    listint_t *next = NULL;
+	listint_t *prev = NULL;
+	listint_t *next = NULL;
 
-    while (*head != NULL)
-    {
-        next = (*head)->next;
-        (*head)->next = prev;
-        prev = *head;
-        *head = next;
-    }
+	while (*head != NULL)
+	{
+		next = (*head)->next;
+		(*head)->next = prev;
+		prev = *head;
+		*head = next;
+	}
 
-    *head = prev;
-    return (*head);
+	*head = prev;
+	return (*head);
 }
 #include "lists.h"
 
@@ -32,22 +32,23 @@ listint_t *reverse_listint(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-    listint_t *ptr = *head;
-    listint_t *str = *head;
-    while (str != NULL && str->next != NULL)
-    {
-        ptr = ptr->next;
-        str = str->next->next;
-    }
-    reverse_listint(&str);
-    ptr = *head;
-    while (str != NULL)
-    {
-        if (ptr->n != str->n)
-            return (0); 
-        ptr = ptr->next;
-        str = str->next;
-    }
+	listint_t *ptr = *head;
+	listint_t *str = *head;
 
-    return (1);
+	while (str != NULL && str->next != NULL)
+	{
+		ptr = ptr->next;
+		str = str->next->next;
+	}
+	reverse_listint(&str);
+	ptr = *head;
+	while (str != NULL)
+	{
+		if (ptr->n != str->n)
+			return (0);
+		ptr = ptr->next;
+		str = str->next;
+	}
+
+	return (1);
 }
