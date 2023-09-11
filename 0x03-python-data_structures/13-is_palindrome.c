@@ -49,7 +49,7 @@ int is_palindrome(listint_t **head)
             return 0;
         }
         *head = (*head)->next;
-        str= str->next;
+        ptr = ptr->next;
     }
 
     return 1; 
