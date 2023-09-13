@@ -1,4 +1,7 @@
 #!/usr/bin/python3
 def common_elements(set_1, set_2):
-    z = set_1.intersection(set_2)
-    return(z)
+    result = []
+    for element in set_1:
+        if element in set_2:
+            result.append(element)
+    return result
