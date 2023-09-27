@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-    
 """Create a Square class with a private attribute size"""
 
 
