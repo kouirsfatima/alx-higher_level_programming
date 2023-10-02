@@ -11,7 +11,7 @@ class Rectangle:
         """Instantiation with optional width and height."""
         self.width = width
         self.height = height
-        type(self).number_of_instances += 1
+        type self.number_of_instances += 1
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
@@ -44,12 +44,15 @@ class Rectangle:
         """Return a string representation of the rectangle."""
         if self.height == 0 or self.width == 0:
             return ""
-        symbol_line = str(self.print_symbol) * self.width
+        symbol_line = (self.print_symbol) * self.width
         return "\n".join([symbol_line for _ in range(self.height)])
 
     def __repr__(self):
+        """ return a string representation of the rectangle """
+
         return f"Rectangle({self.width}, {self.height})"
 
     def __del__(self):
-        type(self).number_of_instances -= 1
+        """Print the message when an instance of Rectangle is deleted"""
+        type self.number_of_instances -= 1
         print("Bye rectangle...")
