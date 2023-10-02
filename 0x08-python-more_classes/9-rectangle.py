@@ -28,11 +28,6 @@ class Rectangle:
         else:
             return rect_2
 
-    @classmethod
-    def square(cls, size=0):
-        """Return a new Rectangle if height == width."""
-        return cls(width=size, height=size)
-
     def area(self):
         """Return the area of the rectangle."""
         return self.height * self.width
@@ -56,3 +51,8 @@ class Rectangle:
     def __del__(self):
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
+
+    @classmethod
+    def square(cls, size=0):
+        """Return a new Rectangle if height == width."""
+        return cls(width=size, height=size)
