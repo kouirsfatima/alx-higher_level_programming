@@ -30,8 +30,8 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        """Return a new Rectangle if height == width."""
-        return cls(width=size, height=size)
+        """Return a new Rectangle height == width."""
+        return Rectangle(size, size)
 
     def area(self):
         """Return the area of the rectangle."""
@@ -51,6 +51,7 @@ class Rectangle:
         return "\n".join([symbol_line for _ in range(self.height)])
 
     def __repr__(self):
+        
         return f"Rectangle({self.width}, {self.height})"
 
     def __del__(self):
