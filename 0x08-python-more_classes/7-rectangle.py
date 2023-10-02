@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Define a Rectangle class."""
 
+
 class Rectangle:
     """Define a Rectangle class."""
     number_of_instances = 0
