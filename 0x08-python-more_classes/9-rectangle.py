@@ -30,6 +30,7 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
+        """Return: new Rectangle if height == width """
         return cls(width=size, height=size)
 
     def area(self):
