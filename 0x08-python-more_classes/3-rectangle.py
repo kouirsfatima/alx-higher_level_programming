@@ -44,3 +44,10 @@ class Rectangle:
     def __str__(self):
         return "\n".join(['#' * self.__width
                           for _ in range(self.__height)])
+
+    def my_print(self):
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        else:
+            print("\n".join(['#' * self.__width
+                             for _ in range(self.__height)]))
