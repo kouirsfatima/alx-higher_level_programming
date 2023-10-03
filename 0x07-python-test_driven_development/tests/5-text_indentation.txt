@@ -1,0 +1,53 @@
+The ``5-text_indentation`` module
+============================
+
+Using ``text_indentation``
+---------------------
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+   
+Testing one word in input
+>>> text_indentation("Lorem ipsum")
+Lorem ip
+
+>>> text_indentation('1')
+>>> text_indentation(12)
+Traceback (most recent call last):
+    	      ...
+TypeError: text must be a string
+
+Testing specific char 
+>>> text_indentation('a')
+
+Testing specific separator (?)
+>>> text_indentation('?')
+
+esting specific separator 
+>>> text_indentation('    ')
+<BLANKLINE>
+>>> text_indentation('\n')
+
+    >>> text_indentation('\n.\n?\n:')
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    <BLANKLINE>
+    
+Testing a text with spaces and one new line
+
+    >>> text_indentation("   \n")
+    <BLANKLINE>
+
+Testinga text with spaces and one new line 2
+
+   >>> text_indentation("   \n   ")
+   <BLANKLINE>
+
+Testing a text with spaces and one new line 3
+
+   >>> text_indentation("\n   ")
+   <BLANKLINE>
+
