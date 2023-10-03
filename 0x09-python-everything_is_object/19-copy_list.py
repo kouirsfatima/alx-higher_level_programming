@@ -1,2 +1,3 @@
-def copy_list(my_list):
-    return my_list[:]
+#!/usr/bin/python3
+def copy_list(original_list):
+    return original_list.copy()
