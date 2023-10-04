@@ -1,41 +1,40 @@
 #!/usr/bin/python3
-"""Unittest for max_integer([..])
+"""Max integer test module.
+This module contains a class that tests for the max_integer function.
 """
 import unittest
 max_integer = __import__('6-max_integer').max_integer
 
-# Suite test for max_integer function
+
 class TestMaxInteger(unittest.TestCase):
+    """Test function"""
+
     def test_max_integer(self):
-        self.assertEqual(max_integer([10, -1, 20, 30]), 30)
+        """
+        Tests if correct tests are ok
+        """
+        lst = [1, 2, 3, 4]
+        self.assertEqual(max_integer(lst), 4)
+        lst = [1, 4, 2, 3, -4]
+        self.assertEqual(max_integer(lst), 4)
+        lst = [4]
+        self.assertEqual(max_integer(lst), 4)
+        lst = [None]
+        self.assertEqual(max_integer(lst), None)
+        lst = []
+        self.assertEqual(max_integer(lst), None)
+        lst = [1, 3, float('inf'), 2]
+        self.assertEqual(max_integer(lst), float('inf'))
+        lst = [1, 3, -float('inf'), 2]
+        self.assertEqual(max_integer(lst), 3)
+        lst = [4, 1, 2, 3]
+        self.assertEqual(max_integer(lst), 4)
 
-    def test_max_float(self):
-        self.assertEqual(max_integer([60, 80, 90, 12]), 90)
-
-    def test_max_empty(self):
-        self.assertIsNone(max_integer([]))
-
-    def test_max_char(self):
-        self.assertEqual(max_integer(['a', 'c']), 'c')
-
-    def test_max_negative(self):
-        self.assertEqual(max_integer([-2, -1, -3]), -1)
-
-    def test_max_correct(self):
-        self.assertEqual(max_integer([10, 10, 10]), 10)
-
-    def test_max_zero(self):
-        self.assertEqual(max_integer([0, 0, 0]), 0)
-
-    def test_max_tuple(self):
-        self.assertEqual(max_integer((1, 2, 3, 34)), 34)
-
-    def test_max_list(self):
-        self.assertEqual(max_integer([1, 2, 3, 34]), 34)
-    def test_dictionary(self):
-        with self.assertRaises(KeyError):
-            max_integer({'key1': 1, 'key2': 2})
-
-    def test_number(self):
-        with self.assertRaises(TypeError):
-            max_integer(1)
+    def test_type(self):
+        """
+        Tests if failure tests are ok
+        """
+        lst = [1, 2, 3, "Betty"]
+        self.assertRaises(TypeError, max_integer, lst)
+        lst = None
+        self.assertRaises(TypeError, max_integer, lst)
