@@ -1,94 +1,44 @@
-The ``0-add_integer`` module
-============================
+The `add_integer` module
+*************************
 
-Using ``add_integer``
----------------------
+Using `add_integer`
+-------------------
 
-Importing function from the module:
+First import Function `add_integer` from the `add_integer` module:
+
     >>> add_integer = __import__('0-add_integer').add_integer
 
-Adding 1 and 2
+Start ALL Test:
+
     >>> add_integer(1, 2)
     3
 
-Subtracting 5 and 2
-    >>> add_integer(5, -2)
-    3
+    >>> add_integer(2)
+    100
 
-Adding 2.1 and 9
-    >>> add_integer(2.1, 9)
-    11
+    >>> add_integer(3, -5)
+    -2
 
-Subtracting 10.3 and 2
-    >>> add_integer(10.3, -2)
+    >>> add_integer(-3)
+    95
+
+    >>> add_integer(-3, -5)
+    -8
+
+    >>> add_integer(3, 5.6)
     8
 
-Testing TypeError for string input
-    >>> add_integer(4, "School")
-    Traceback (most recent call last):
-      ...
-    TypeError: b must be an integer or float
+    >>> add_integer(3.5, 5.3)
+    8
 
-Testing TypeError for None input
-    >>> add_integer(None)
-    Traceback (most recent call last):
-      ...
-    TypeError: a must be an integer or float
+    >>> add_integer(3.5)
+    101
 
-Adding 0 and 9
-    >>> add_integer(0, 9)
-    9
+    >>> add_integer(1.2, -1.5)
+    0
 
-Testing TypeError for string 'a'
-    >>> add_integer(4, 'a')
-    Traceback (most recent call last):
-      ...
-    TypeError: b must be an integer or float
-
-Testing TypeError for None input
-    >>> add_integer(4, None)
-    Traceback (most recent call last):
-      ...
-    TypeError: b must be an integer or float
-
-Testing TypeError for list input
-    >>> add_integer([1, 2, 3, 4, 5])
-    Traceback (most recent call last):
-      ...
-    TypeError: a must be an integer or float
-
-Testing TypeError for tuple input
-    >>> add_integer((1, 2, 3, 4, 5))
-    Traceback (most recent call last):
-      ...
-    TypeError: a must be an integer or float
-
-Testing TypeError for string input
-    >>> add_integer("Hello")
-    Traceback (most recent call last):
-      ...
-    TypeError: a must be an integer or float
-
-Adding two letters
-    >>> add_integer('2', '1')
-    Traceback (most recent call last):
-      ...
-    TypeError: a must be an integer or float
-
-Adding a letter and a number
-
-Adding two float numbers
->>> add_integer('1', 1)
-Traceback (most recent call last):
-    ...
-TypeError: b must be an integer or float
-
-    >>> add_integer(2.9, 2.9)
-    4
-
-Subtracting 98 and 1
-    >>> add_integer(-1)
-    97
+    >>> add_integer(-2.5, -4.2)
+    -6
 
     >>> add_integer(float('inf'), 1)
     Traceback (most recent call last):
@@ -115,3 +65,47 @@ Subtracting 98 and 1
 	...
 	TypeError: a must be an integer
 
+    	>>> add_integer("mohamed", 1)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer("mohamed", "test")
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(1, "test")
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
+
+	>>> add_integer("mohamed")
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(None, 1)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(None, None)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(1, None)
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
+
+	>>> add_integer(None)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer()
+	Traceback (most recent call last):
+	...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
