@@ -1,19 +1,15 @@
 #!/usr/bin/python3
 def print_square(size):
     """
-    Prints a square of '#' characters with the given size.
-
+    print_square a function that print square from '#'
     Args:
-        size (int): The size of the square.
-
-    Raises:
-        ValueError: If size is not a positive integer.
-        TypeError: If size is not an integer.
+        size (int): a size of square
+    Return: Square of # or None
     """
-    if not isinstance(size, int):
-        raise TypeError("size must be an integer")
+    if type(size) is not int:
+        raise TypeError('size must be an integer')
     if size < 0:
-        raise ValueError("size must be a positive integer")
+        raise ValueError('size must be >= 0')
 
-    for i in range(size):
+    for row in range(size):
         print("#" * size)
