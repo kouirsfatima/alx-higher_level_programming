@@ -1,27 +1,24 @@
 #!/usr/bin/python3
-"""
-This function prints a text string.
-"""
-
-
 def text_indentation(text):
     """
-    This function prints a text string.
-
     Args:
-        text (str): The text to be formatted and printed.
-
-    Returns:
-        None
+        text (str): a string tha will divied
+    Return: new text divied by .?:
     """
-
-
-def text_indentation(text):
-    if type(text) is not str:
+    if not isinstance(text, str):
         raise TypeError("text must be a string")
-    separators = [".", "?", ":"]
-    f_text = text
-    for i in separators:
-        f_text = f_text.replace(i, i + "\n\n")
 
-    print(f_text[:-3], end="")
+    idx = 0
+    while idx < len(text) and text[idx] == ' ':
+        idx += 1
+
+    while idx < len(text):
+        print(text[idx], end="")
+        if text[idx] == "\n" or text[idx] in ".?:":
+            if text[idx] in ".?:":
+                print("\n")
+            idx += 1
+            while idx < len(text) and text[idx] == ' ':
+                idx += 1
+            continue
+        idx += 1
