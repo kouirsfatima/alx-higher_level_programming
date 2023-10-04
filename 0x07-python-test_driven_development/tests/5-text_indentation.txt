@@ -1,53 +1,57 @@
-The ``5-text_indentation`` module
-============================
+the `text_indentation` module
+***************************
 
-Using ``text_indentation``
+Using `text_indentation`
 ---------------------
->>> text_indentation = __import__('5-text_indentation').text_indentation
 
-   
-Testing one word in input
->>> text_indentation("Lorem ipsum")
-Lorem ip
+First import function `text_indentation` from the `text_indentation` module:
 
->>> text_indentation('1')
->>> text_indentation(12)
-Traceback (most recent call last):
-    	      ...
-TypeError: text must be a string
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
 
-Testing specific char 
->>> text_indentation('a')
+Start ALL Test:
 
-Testing specific separator (?)
->>> text_indentation('?')
+    handle Error : test
 
-esting specific separator 
->>> text_indentation('    ')
-<BLANKLINE>
->>> text_indentation('\n')
+    >>> text_indentation(12)
+    Traceback (most recent call last):
+    TypeError: text must be a string
 
-    >>> text_indentation('\n.\n?\n:')
-    <BLANKLINE>
-    .
-    <BLANKLINE>
-    <BLANKLINE>
-    ?
-    <BLANKLINE>
-    <BLANKLINE>
-    
-Testing a text with spaces and one new line
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
 
-    >>> text_indentation("   \n")
+    >>> text_indentation("test:")
+    test:
     <BLANKLINE>
 
-Testinga text with spaces and one new line 2
+	>>> text_indentation("test")
+	test
 
-   >>> text_indentation("   \n   ")
-   <BLANKLINE>
+	>>> text_indentation(":test")
+	:
+	<BLANKLINE>
+	test
 
-Testing a text with spaces and one new line 3
+	>>> text_indentation(".")
+	.
+	<BLANKLINE>
 
-   >>> text_indentation("\n   ")
-   <BLANKLINE>
+	>>> text_indentation(" ")
 
+	>>> text_indentation("")
+
+	>>> text_indentation(" ?")
+	?
+	<BLANKLINE>
+
+    normal test
+    >>> text_indentation("hi! mohamed. how are you ? are you good ? mohamed: yes")
+    hi! mohamed.
+    <BLANKLINE>
+    how are you ?
+    <BLANKLINE>
+    are you good ?
+    <BLANKLINE>
+    mohamed:
+    <BLANKLINE>
+    yes
