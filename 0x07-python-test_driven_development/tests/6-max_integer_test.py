@@ -32,3 +32,10 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_max_list(self):
         self.assertEqual(max_integer([1, 2, 3, 34]), 34)
+    def test_dictionary(self):
+        with self.assertRaises(KeyError):
+            max_integer({'key1': 1, 'key2': 2})
+
+    def test_number(self):
+        with self.assertRaises(TypeError):
+            max_integer(1)
