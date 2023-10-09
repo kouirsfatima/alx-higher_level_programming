@@ -22,11 +22,7 @@ class Rectangle(BaseGeometry):
 
     def __init__(self, width, height):
         """Constructor method for Rectangle"""
+        self.__width = width
         self.integer_validator("width", width)
         self.integer_validator("height", height)
-        self.__width = width
         self.__height = height
-
-    def area(self):
-        """Method to calculate the area of the rectangle"""
-        return self.__width * self.__height
