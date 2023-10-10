@@ -13,6 +13,6 @@ def read_file(filename="my_file_0.txt"):
         Exception: When the file cannot be opened.
     """
 
-    with open(filename, 'r', encoding="utf-8") as file:
-        read_content = file.read()
-        print(read_content, end=" ")
+    with open(filename, 'r', encoding="utf-8") as f:
+        read_data = f.read()
+        print(read_data, end='')
