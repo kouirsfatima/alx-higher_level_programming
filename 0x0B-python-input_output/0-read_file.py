@@ -7,7 +7,7 @@ def read_file(filename="my_file_0.txt"):
     Read the contents of a text file and print it.
 
     Args:
-        filename (str): The name of the file.
+        filename : The name of the file.
 
     Raises:
         Exception: When the file cannot be opened.
