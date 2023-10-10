@@ -7,10 +7,11 @@ def read_file(filename=""):
     Read the contents of a text file and print it.
 
     Args:
-        filename : The name of the file.
+        filename (str): The name of the file.
 
     Raises:
-        Exception: When the file cannot be opened.
+        FileNotFoundError: If the specified file is not found.
+        Exception: For other file-related errors.
     """
 
     with open(filename, 'r', encoding="utf-8") as file:
