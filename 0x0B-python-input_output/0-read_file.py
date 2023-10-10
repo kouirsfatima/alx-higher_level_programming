@@ -14,6 +14,6 @@ def read_file(filename=""):
         Exception: For other file-related errors.
     """
 
-    with open(filename, 'r', encoding="utf-8") as file:
-        read_content = file.read()
-        print(read_content, end=" ")
+    with open(filename, 'r', encoding="utf-8") as f:
+        read_data = f.read()
+        print(read_data, end='')
