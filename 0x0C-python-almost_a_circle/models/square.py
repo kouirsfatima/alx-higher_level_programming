@@ -28,29 +28,21 @@ class Square(Rectangle):
             .format(self.id, self.x, self.y, self.width)
 
     def update(self, *args, **kwargs):
-        """Update the Rectangle.
+        """Assign value to attribute using *args"""
+        OrdArgs = ['id', 'size', 'x', 'y']
 
-        Args:
-        *args (ints): New attribute values.
-            - 1st argument represents id attribute
-            - 2nd argument represents width attribute
-            - 3rd argument represent height attribute
-            - 4th argument represents x attribute
-            - 5th argument represents y attribute
-        **kwargs (dict): New key/value pairs of attributes.
-        """
         if args:
-            if len(args) >= 1:
-                self.id = args[0]
-            if len(args) >= 2:
-                self.size = args[1]
-            if len(args) >= 3:
-                self.x = args[2]
-            if len(args) >= 4:
-                self.y = args[3]
-        elif kwargs:
+            for idx, value in enumerate(args):
+                if value is None:
+                    self.__init__(self.size, self.x, self.y)
+                if value is not None and idx <= 3:
+                    setattr(self, OrdArgs[idx], value)
+        else:
             for key, value in kwargs.items():
-                setattr(self, key, value)
+                if value is None:
+                    self.__init__(self.size, self.x, self.y)
+                else:
+                    setattr(self, key, value)
 
     def to_dictionary(self):
         """Return the dictionary representation of a Rectangle."""
