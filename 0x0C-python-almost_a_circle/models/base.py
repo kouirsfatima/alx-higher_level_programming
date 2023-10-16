@@ -29,8 +29,11 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Return the JSON string."""
+        """Return the JSON serialization of a list of dicts.
 
+        Args:
+            list_dictionaries (list): A list of dictionaries.
+        """
         if list_dictionaries is None:
             return "[]"
 
@@ -38,7 +41,11 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Save list_objs to a file in JSON format."""
+        """Write the JSON serialization of a list of objects to a file.
+
+        Args:
+            list_objs (list): A list of inherited Base instances.
+        """
         file1 = cls.__name__ + "_file1.json"
         if list_objs is None:
             list_objs = []
@@ -55,6 +62,12 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """Return a class instantied from a dictionary of attributes.
+
+        Args:
+            **dictionary (dict): Key/value pairs of attributes to initialize.
+        """
+
         if cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
         else:
