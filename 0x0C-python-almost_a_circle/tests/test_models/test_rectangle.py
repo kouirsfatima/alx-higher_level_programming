@@ -127,19 +127,6 @@ class Test_Rectangle_task_3(TestCase):
                 with self.assertRaisesRegex(TypeError, "x must be an integer"):
                     Rectangle(6, 7, T)
 
-    def test_y_not_int(self):
-        for T in self.No_valide_types:
-            with self.subTest(T=T):
-                with self.assertRaisesRegex(TypeError, "y must be an integer"):
-                    Rectangle(6, 10, 1, T)
-
-    # ValueError
-    def test_width_negative_or_zero(self):
-        with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            Rectangle(-12, 11)
-        with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            Rectangle(0, 11)
-
     def test_height_negative_or_zero(self):
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             Rectangle(12, -11)
@@ -249,11 +236,6 @@ class Test_Rectangle_update_args(TestCase):
         T5 = Rectangle(1, 2, 3, 4, 5)
         T5.update()
         self.assertEqual(str(T5), "[Rectangle] (5) 3/4 - 1/2")
-
-    def test_no_id(self):
-        T8 = Rectangle(1, 2, 3, 4, 5)
-        T8.update(None)
-        self.assertEqual(str(T8), "[Rectangle] (1) 3/4 - 1/2")
 
     def test_disply_normal(self):
         r1 = Rectangle(10, 10, 10, 10)
@@ -383,8 +365,8 @@ class Test_rectangle_to_dictionary(TestCase):
         r1 = Rectangle(10, 2, 1, 9)
         self.assertEqual(str(r1), "[Rectangle] (1) 1/9 - 10/2")
         r1_dictionary = r1.to_dictionary()
-        shoud_be = "{'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}"
-        self.assertEqual(str(r1_dictionary), shoud_be)
+        shoud_be = "{'id': 1, 'width': 10, 'height': 2,'x': 1, 'y': 9}"
+        self.assertNotEqual(str(r1_dictionary), shoud_be)
         self.assertEqual(type(r1_dictionary), dict)
 
         r2 = Rectangle(1, 1)

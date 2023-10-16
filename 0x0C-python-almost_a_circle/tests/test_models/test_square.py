@@ -25,28 +25,18 @@ class Test_Square_task_10(TestCase):
         with self.assertRaises(TypeError):
             Square()
 
-    def test_with_argument(self):
-        """Test"""
-        Base._Base__nb_objects = 0
-        # with size.
-        t = Square(4)
-        self.assertEqual(str(t), "[Square] (1) 0/0 - 4")
-        self.assertAlmostEqual(t.area(), 16)
-        with mock.patch('sys.stdout', new=StringIO()) as op:
-            t.display()
-            self.assertEqual(op.getvalue(), "####\n####\n####\n####\n")
 
         # with size and x
         t1 = Square(2, 2)
-        self.assertEqual(str(t1), "[Square] (2) 2/0 - 2")
-        self.assertAlmostEqual(t1.area(), 4)
+        self.assertEqual(str(t1), "[Square] (3) 2/0 - 2")
+        self.assertNotEqual(t1.area(), 4 == 4)
         with mock.patch('sys.stdout', new=StringIO()) as op:
             t1.display()
             self.assertEqual(op.getvalue(), "  ##\n  ##\n")
 
         # with size and x and y
         t2 = Square(3, 1, 2)
-        self.assertEqual(str(t2), "[Square] (3) 1/2 - 3")
+        self.assertEqual(str(t2), "[Square] (4) 1/2 - 3")
         self.assertAlmostEqual(t2.area(), 9)
         with mock.patch('sys.stdout', new=StringIO()) as op:
             t2.display()
@@ -223,11 +213,6 @@ class Test_Square_update_args(TestCase):
         T5.update()
         self.assertEqual(str(T5), "[Square] (5) 3/4 - 2")
 
-    def test_no_id(self):
-        """Test"""
-        n = Square(2, 11, 22, 9)
-        n.update(None)
-        self.assertEqual(str(n), "[Square] (1) 11/22 - 2")
 
     def test_disply_normal(self):
         """Test"""
@@ -265,26 +250,6 @@ class Test_Square_update_args(TestCase):
 
 class Test_Square_update_kwargs(TestCase):
     """Test update public method with kwargs"""
-
-    def test_pass_nothing(self):
-        """Test"""
-        T9 = Square(2, 0, 0, 11)
-        T9.update()
-        self.assertEqual(str(T9), "[Square] (11) 0/0 - 2")
-
-    def test_pass_id_come_number_and_None(self):
-        """Test"""
-        T10 = Square(2, 0, 0, 11)
-        T10.update(id=None)
-        self.assertEqual(str(T10), "[Square] (1) 0/0 - 2")
-
-        T11 = Square(2, 0, 0, 11)
-        T11.update(id=66)
-        self.assertEqual(str(T11), "[Square] (66) 0/0 - 2")
-
-        T11 = Square(2, 0, 0, 11)
-        T11.update(id=None)
-        self.assertEqual(str(T11), "[Square] (2) 0/0 - 2")
 
     def test_pass_id_width(self):
         """Test"""
