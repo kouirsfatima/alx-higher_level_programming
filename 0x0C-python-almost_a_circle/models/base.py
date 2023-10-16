@@ -87,7 +87,6 @@ class Base:
         dummy.update(**dictionary)
         return dummy
 
-    @classmethod
     def load_from_file(cls):
         """Return a list of classes instantiated from a file of JSON strings.
 
@@ -104,4 +103,3 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
-
