@@ -1,25 +1,23 @@
 #!/usr/bin/python3
-"""Defines a base model class"""
-
-
+#!/usr/bin/python3
+"""
 import json
+import csv
+"""
+import json
+import csv
+
+"""module Base"""
 
 
 class Base:
-    """Represent the base model.
-    Represents the "base" for all other classes in project 0x0C*.
-
-    Attributes:
-        __nb_objects (int): The number of instantiated Bases.
-    """
+    """This class represent a Base model."""
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """
-        Initializes a new instance of the Base class.
-
+        """Initialize a new Base Object.
         Args:
-            id (int): The identifier for the instance.
+            id (int): The ident of The Base
         """
         if id is not None:
             self.id = id
@@ -29,48 +27,67 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Return the JSON serialization of a list of dicts.
+        """
+        Returns the JSON string representation of list_dictionaries
 
         Args:
-            list_dictionaries (list): A list of dictionaries.
-        """
-        if list_dictionaries is None:
-            return "[]"
+            list_dictionaries (list): List of dictionaries.
 
-        return json.dumps(list_dictionaries)
+        If list_dictionaries is None or  an empty list return '[]'.
+        Overwrite json string.
+        """
+        if list_dictionaries is None or len(list_dictionaries) == 0:
+            return "[]"
+        str_dict = json.dumps(list_dictionaries)
+        return str_dict
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Write the JSON serialization of a list of objects to a file.
+        """
+        Write the JSON string representation of list_objs to a file.
 
         Args:
-            list_objs (list): A list of inherited Base instances.
-        """
-        file1 = cls.__name__ + "_file1.json"
-        if list_objs is None:
-            list_objs = []
-        dict_list = [obj.to_dictionary() for obj in list_objs]
-        json_string = Base.to_json_string(dict_list)
-        with open(file1, 'w') as file:
-            file.write(json_string)
+            list_objs (list): List of instances to be saved.
 
+        If list_objs is None, save an empty list.
+        Overwrite the file if it already exists.
+        """
+        _list = []
+        if list_objs is not None:
+            for obj in list_objs:
+                _list.append(obj.to_dictionary())
+
+        filename = f"{cls.__name__}.json"
+        json_str = cls.to_json_string(_list)
+
+        with open(filename, "w") as file:
+            file.write(json_str)
+
+    @staticmethod
     def from_json_string(json_string):
-        if json_string is None:
+        """Returns the list of the JSON string representation json_string.
+        Args:
+            json_string (str): string representing a list of dictionaries.
+        """
+        if json_string is None or len(json_string) == 0:
             return []
-        else:
-            return json.loads(json_string)
+        return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
-        """Return a class instantied from a dictionary of attributes.
-
-        Args:
-            **dictionary (dict): Key/value pairs of attributes to initialize.
         """
+        Create an instance with attributes set based on
+            the provided dictionary.
+        Args:
+            **dictionary: a double pointer to a dictionary
 
-        if cls.__name__ == "Rectangle":
+        Return:
+            Instance of the class with attributes set.
+        """
+        if cls.__name__ == 'Rectangle':
             dummy = cls(1, 1)
         else:
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
+
