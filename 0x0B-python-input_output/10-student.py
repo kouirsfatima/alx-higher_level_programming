@@ -20,13 +20,13 @@ class Student:
         if not isinstance(attrs, list):
             return obj
 
-        result_dict = {}
-        for attr in attrs:
-            if not isinstance(attr, str):
+        new_dict = {}
+        for str_1 in attrs:
+            if not isinstance(str_1, str):
                 return obj
 
-        for attr in attrs:
-            if attr in obj:
-                result_dict[attr] = obj[attr]
+        for str_1 in attrs:
+            if str_1 in obj:
+                new_dict[str_1] = obj[str_1]
 
-        return result_dict
+        return new_dict

@@ -22,6 +22,7 @@ class Student:
 
         result_dict = {}
         for attr in attrs:
+
             if not isinstance(attr, str):
                 return obj
 
@@ -33,5 +34,6 @@ class Student:
 
     def reload_from_json(self, json_data):
         """ Method that replaces all attributes of the Student instance """
-        if isinstance(json_data, dict):
-            self.__dict__ = json_data
+        if type (json_data)is  dict:
+            obj =  self.__dict__ = json_data
+        return obj

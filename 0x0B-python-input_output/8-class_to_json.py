@@ -8,7 +8,6 @@ def class_to_json(obj):
     """Function that returns the dictionary description of an obj."""
     pld = {}
 
-    if hasattr(obj, "__dict__"):
+    if not isinstance(obj, (list, dict, str, int, bool)):
         pld = obj.__dict__.copy()
-
     return pld
