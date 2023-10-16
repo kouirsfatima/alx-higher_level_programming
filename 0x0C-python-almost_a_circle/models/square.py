@@ -1,14 +1,10 @@
 #!/usr/bin/python3
-"""import Rectange from models.rectangle"""
+"""Defines a square class."""
 from models.rectangle import Rectangle
-
-"""module Square"""
 
 
 class Square(Rectangle):
-    """This class represent Square module
-        that inherits from Rectangle.
-    """
+    """Represent a square."""
 
     def __init__(self, size, x=0, y=0, id=None):
         """initialize new Square Object
@@ -18,7 +14,9 @@ class Square(Rectangle):
             y (int) : The y of The Square
             id (int) : The id of The Square
         """
+
         super().__init__(size, size, x, y, id)
+        self.__size = size
 
     @property
     def size(self):
@@ -32,7 +30,6 @@ class Square(Rectangle):
         self.height = value
 
     def __str__(self):
-        
         """return string"""
         return "[Square] ({:d}) {:d}/{:d} - {:d}"\
             .format(self.id, self.x, self.y, self.width)
