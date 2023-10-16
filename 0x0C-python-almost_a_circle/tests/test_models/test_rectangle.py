@@ -1,5 +1,8 @@
-
 #!/usr/bin/python3
+"""Defines unittests for base.py.
+
+"""
+
 import unittest
 from unittest.mock import patch
 from io import StringIO 

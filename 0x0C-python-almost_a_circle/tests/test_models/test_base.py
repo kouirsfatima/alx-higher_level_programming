@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-"""Defines unittests for base.py."""
+"""Defines unittests for base.py.
+
+"""
 import os
-from models.base import Base
 import unittest
-from unittest.mock import patch
-from io import StringIO
+from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
-
 
 class TestBaseInstantiation(unittest.TestCase):
 
@@ -158,7 +157,7 @@ class TestBase_create(unittest.TestCase):
         square_dict = {'id': 89, 'size': 1}
         square = Square.create(**square_dict)
         self.assertEqual(square.id, 89)
-        
+
     def test__create_with_size(self):
         square_dict = {'id': 89, 'size': 1}
         square = Square.create(**square_dict)
@@ -192,3 +191,5 @@ class TestBase_create(unittest.TestCase):
         square_dict = {'id': 89, 'size': 1, 'x': 2, 'y': 3}
         square = Square.create(**square_dict)
         self.assertEqual(square.y, 3)
+if __name__ == '__main__':
+    unittest.main()
