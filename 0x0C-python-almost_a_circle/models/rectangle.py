@@ -72,16 +72,18 @@ class Rectangle(Base):
         print("\n".join(['#' * self.__width for _ in range(self.__height)]))
 
     def __str__(self):
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
-         
-    def display(self):      
+        """Return string."""
+        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"\
+            .format(self.id, self.__x, self.__y, self.__width, self.__height)
+
+    def display(self):
         if self.__width == 0 or self.__height == 0:
             return
         for a in range(self.__y):
             print()
         for i in range(self.__height):
             print(' ' * self.__x + '#' * self.__width)
-        
+
     def update(self, *args, **kwargs):
         """Update the Rectangle.
 
@@ -113,9 +115,9 @@ class Rectangle(Base):
                     self.__init__(self.width, self.height, self.x, self.y)
                 else:
                     setattr(self, key, value)
-    
+
     def to_dictionary(self):
-       
+
         """Return the dictionary representation of a Rectangle."""
         return {
             "id": self.id,
@@ -123,4 +125,4 @@ class Rectangle(Base):
             "height": self.height,
             "x": self.x,
             "y": self.y
-        }
+                    }

@@ -2,6 +2,7 @@
 """Defines a square class."""
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """Represent a square."""
 
@@ -18,9 +19,12 @@ class Square(Rectangle):
         self.__size = value
         self.width = value
         self.height = value
+
     def __str__(self):
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
-        
+        """return string"""
+        return "[Square] ({:d}) {:d}/{:d} - {:d}"\
+            .format(self.id, self.x, self.y, self.width)
+
     def update(self, *args, **kwargs):
         """Update the Rectangle.
 
@@ -45,6 +49,7 @@ class Square(Rectangle):
         elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
     def to_dictionary(self):
         """Return the dictionary representation of a Rectangle."""
         return {
