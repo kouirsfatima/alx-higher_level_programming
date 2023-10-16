@@ -61,7 +61,6 @@ class Base:
         with open(filename, "w") as file:
             file.write(json_str)
 
-
     def from_json_string(json_string):
         """Returns the list of the JSON string representation json_string.
         Args:
