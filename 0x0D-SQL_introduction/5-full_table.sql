@@ -1,2 +1,2 @@
--- Show the CREATE TABLE statement for 'first_table' in 'hbtn_0c_0'
-SHOW CREATE TABLE hbtn_0c_0.`first_table`;
+-- creates a table called first_table in my current DB
+CREATE TABLE IF NOT EXISTS `first_table` (`id` INT, `name` VARCHAR(256));
