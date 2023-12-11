@@ -1,9 +1,9 @@
 #!/usr/bin/node
 
-const count = process.argv.length;
+const Args = process.argv.length;
 
-if (count[0] === undefined) {
-    console.log('No argument');
-  } else {
-    console.log(count[0]);
-  }
+if (Args === 2) {
+  console.log('No argument');
+} else {
+  console.log(process.argv[2]);
+}
