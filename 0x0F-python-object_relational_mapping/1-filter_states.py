@@ -1,10 +1,10 @@
- #!/usr/bin/python3
-"""module for states"""
+#!/usr/bin/python3
+"""lists all states with a name starting with N"""
 import MySQLdb
 from sys import argv
 
 if __name__ == "__main__":
-    count = MySQLdb.connect(
+    db = MySQLdb.connect(
         host="localhost",
         port=3306,
         user=argv[1],
@@ -12,13 +12,11 @@ if __name__ == "__main__":
         db=argv[3]
     )
 
-    curs = count.cursor()
-
-    curs.execute("SELECT * FROM states ORDER BY id ASC")
+    curs = db.cursor()
+    curs.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
     query_rows = curs.fetchall()
 
     for row in query_rows:
         print(row)
 
-    curs.close()
-    count.close()
+    db.close()
