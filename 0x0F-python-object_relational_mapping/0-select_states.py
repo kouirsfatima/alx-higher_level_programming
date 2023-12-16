@@ -4,7 +4,7 @@ import MySQLdb
 from sys import argv
 
 if __name__ == "__main__":
-    count = MySQLdb.connect(
+    db= MySQLdb.connect(
         host="localhost",
         port=3306,
         user=argv[1],
@@ -12,7 +12,7 @@ if __name__ == "__main__":
         db=argv[3]
     )
 
-    curs = count.cursor()
+    curs = db.cursor()
 
     curs.execute("SELECT * FROM states ORDER BY id ASC")
     query_rows = curs.fetchall()
@@ -21,4 +21,4 @@ if __name__ == "__main__":
         print(row)
 
     curs.close()
-    count.close()
+    db.close()
