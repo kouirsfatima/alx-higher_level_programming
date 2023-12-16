@@ -1,11 +1,13 @@
 #!/usr/bin/python3
-"""Start link class to table in database
+"""Start link class to table in database 
 """
-import sys
-from model_state import Base, State
-
+from sys import argv
 from sqlalchemy import (create_engine)
+from model_state import Base, State
+from model_city import City
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
+    db_URL = f"mysql+mysqldb://{argv[1]}:{argv[2]}@localhost/{argv[3]}"
+    engine = create_engine (db_URL, pool_pre_ping=True, echo=True)
+
     Base.metadata.create_all(engine)
