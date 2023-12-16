@@ -13,10 +13,12 @@ if __name__ == "__main__":
     )
 
     curs = db.cursor()
-    curs.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    curs.execute("""SELECT * FROM states WHERE name
+                LIKE BINARY 'N%' ORDER BY states.id""")
     query_rows = curs.fetchall()
 
     for row in query_rows:
         print(row)
 
     db.close()
+    curs.close()
