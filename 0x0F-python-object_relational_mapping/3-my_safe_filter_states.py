@@ -15,7 +15,7 @@ if __name__ == "__main__":
     curs = db.cursor()
     state_name = argv[4]  
     
-    curs.execute("SELECT * FROM states WHERE name LIKE %s", (state_name))
+    curs.execute("SELECT * FROM states WHERE name LIKE %s", (state_name, ))
     
     query_rows = curs.fetchall()
     for row in query_rows:
