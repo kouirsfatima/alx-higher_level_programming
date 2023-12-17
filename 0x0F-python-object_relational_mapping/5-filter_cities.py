@@ -20,7 +20,5 @@ if __name__ == "__main__":
                     ORDER BY cities.id ASC"""(name_state))
 
     query_rows = curs.fetchall()
-    for row in query_rows:
-        print(row)
 
     db.close()

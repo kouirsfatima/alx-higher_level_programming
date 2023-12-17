@@ -8,7 +8,8 @@ if __name__ == "__main__":
                            passwd=argv[2], db=argv[3], charset="utf8")
 
     curs = conn.cursor()
-
+    #curs.execute('create table if not exists states(id int,sname varchar(255))')
+    #curs.execute('INSERT INTO states (id, sname) VALUES (1, "fati")')
     curs.execute("SELECT * FROM states ORDER BY id ASC")
     query_rows = curs.fetchall()
     for row in query_rows:
